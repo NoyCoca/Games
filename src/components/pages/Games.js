@@ -28,7 +28,7 @@ const Games = () => {
 
   return (
     <>
-      <PageHeader title="Video" />
+      <PageHeader title="Video Games" />
       <StyleCardContinuer>
         {games ? (
           games.map((game) => (
