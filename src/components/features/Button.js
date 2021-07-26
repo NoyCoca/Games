@@ -9,7 +9,8 @@ const Button = ({
   background,
   hoverColor,
   height,
-  border
+  border,
+  color
 }) => {
   const StyleButton = styled.button`
     height: ${height};
@@ -18,13 +19,14 @@ const Button = ({
     background: ${background};
     border: none;
     margin: 5px;
-    border-radius: 5px;
+    color: ${color};
+    /* border-radius: 5px; */
     border: ${border};
     &:hover {
       background: ${hoverColor};
     }
   `;
-  return <StyleButton className="animate__animated animate__bounce animate__delay-1s" onClick={clickHandler}>{title}</StyleButton>;
+  return <StyleButton  onClick={clickHandler}>{title}</StyleButton>;
 };
 
 export default Button;

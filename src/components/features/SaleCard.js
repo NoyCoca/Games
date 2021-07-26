@@ -7,7 +7,7 @@ const StyleDivInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 20px;
+  /* margin: 20px; */
   width: 20%;
 `;
 
@@ -34,10 +34,9 @@ background-size: 100% 100%;
     <StyleDiv>
       <StyleDivInfo>
         <h3>{name} </h3>
-        <p>{price}</p>
+        <p>{price}$</p>
         <Button
           title="Buy"
-          // width="80%"
           padding="5px"
           background="#45a949d9"
           hoverColor="#45a949a6"
@@ -49,7 +48,6 @@ background-size: 100% 100%;
           }}
         />
       </StyleDivInfo>
-      {/* <StyleImg src={img} /> */}
     </StyleDiv>
   );
 };

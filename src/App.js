@@ -19,6 +19,7 @@ function App() {
           const game = data[i];
           const price = Math.floor(Math.random() * 300);
           game.price = price;
+          game.items = 1;
         }
         console.log(data);
         setGame(data);
@@ -26,12 +27,16 @@ function App() {
     []
   );
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const [userName, setUserName] = useState();
+  const [gameName, setGameName] = useState();
+  const [search, setSearch] = useState();
   return (
     <Router>
-      <StoreContextProvider value={{ state, dispatch, games }}>
+      <StoreContextProvider value={{ state, dispatch, games, userName, setUserName, gameName, setGameName, search, setSearch }}>
         <div className="App">
-          <Routing />
+          <div className="AppBack">
+            <Routing />
+          </div>
         </div>
       </StoreContextProvider>
     </Router>

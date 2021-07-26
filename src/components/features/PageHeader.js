@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
 const StyleH1 = styled.h1`
-  text-align: center;
-  margin: 20px;
+font-family: 'Games';
+  margin: 25px 120px;
 `;
-const PageHeader = ({title})=>{
-    return <StyleH1> {title} </StyleH1>
+const PageHeader = ({ title }) => {
+  return <StyleH1> {title} </StyleH1>
 }
 
 export default PageHeader;

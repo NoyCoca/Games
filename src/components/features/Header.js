@@ -9,25 +9,41 @@ const StyleDivContinuer = styled.div`
   border-bottom: solid 1px;
 `;
 
+const StyleH1 = styled.h1`
+    font-family: 'Games', sans-serif;
+    font-size: 60px;
+`
+const StyleI = styled.i`
+text-decoration: none;
+    color: #ffffff8a;
+    font-size: 20px;
+    margin: 0px 8px 0px 0px;
+`
 const Header = () => {
-      const itemState = useStoreContext().state;
+  const itemState = useStoreContext().state;
+  const userName = useStoreContext().userName;
   return (
     <StyleDivContinuer>
-      <h1> Games</h1>
-      <div style={{ display: "flex", alignSelf: "center" , width: "15%",
-    justifyContent: "space-around"}}>
+      <StyleH1>NC Games</StyleH1>
+      <div style={{
+        display: "flex", alignSelf: "center",
+        justifyContent: "space-around"
+      }}>
         <div>
-          <i className="far fa-user">
-            <Link to="/singup">SingUp</Link> \ <Link to="/singup">SingUp</Link>
-          </i>
+
+          {
+            userName ? <StyleI className="far fa-user"> hello {userName} |  </StyleI> : <> <Link to="/signup"><StyleI className="far fa-user"> |  </StyleI></Link> </>
+          }
+
         </div>
-        <span>
+        <p>
           <Link to="/shoppingcart">
-            <i className="fas fa-shopping-cart">{itemState.itemsNumber} </i>
+            <StyleI className="fas fa-shopping-cart">{itemState.itemsNumber} </StyleI>
           </Link>
-        </span>
+        </p>
       </div>
     </StyleDivContinuer>
   );
 };
+
 export default Header;

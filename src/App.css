@@ -1,7 +1,19 @@
- /* .App {
-  text-align: center;
-  text-align: -webkit-center;
-} */
+ .App {
+  /* text-align: center;
+  text-align: -webkit-center; */
+  background-image: url('./background-image.png');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  color: white;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.AppBack{
+    background-color: #0000008f;
+}
 
 /*
 .App-logo {
