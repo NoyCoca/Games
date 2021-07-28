@@ -22,7 +22,7 @@ const Search = ({ searchItem }) => {
             {
 
                 searchGames?.length > 0 ? searchGames.map(game => 
-                <CardItem linkTo ="search" name={game.name} img={game.background_image} price={game.price} /> )
+                <CardItem key={game.id} linkTo ="search" name={game.name} img={game.background_image} price={game.price} /> )
                 : <h4>no match</h4>
                
             }

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import Ticker from "react-ticker";
 import styled from "styled-components";
 import { useStoreContext } from "../../context/ItemsContext";
+import MoveStuffAround from "./MoveStuffAround";
 
 const StyleDivContinuer = styled.div`
   display: flex;
@@ -24,7 +26,7 @@ const Header = () => {
   const userName = useStoreContext().userName;
   return (
     <StyleDivContinuer>
-      <StyleH1>NC Games</StyleH1>
+      <StyleH1>Games</StyleH1>
       <div style={{
         display: "flex", alignSelf: "center",
         justifyContent: "space-around"
@@ -42,6 +44,8 @@ const Header = () => {
           </Link>
         </p>
       </div>
+      
+
     </StyleDivContinuer>
   );
 };

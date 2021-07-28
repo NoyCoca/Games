@@ -14,28 +14,21 @@ height: 83vh;
 
 const OrderSummary = ({ subtotal }) => {
     return (
-        <>
-            <p> cdsvcdsdsvs </p>
-            {
 
-                subtotal > 0 ? (
-                    <StyleDiv>
-                        <h3>Order Summary</h3>
-                        <StyleP> Subtotal: {subtotal}$</StyleP>
-                        <Button
-                            width="100%"
-                            title={<i className="fas fa-credit-card"> Pay </i>}
-                            padding="5px"
-                            background="white"
-                            border="solid 1px #45a949a6"
-                            hoverColor="#45a949a6"
-                            height="fit-content"
-                        />
-                    </StyleDiv>
-                ) : (
-                    ""
-                )}
-        </>
+        <StyleDiv>
+            <h3>Order Summary</h3>
+            <StyleP> Subtotal: {subtotal}$</StyleP>
+            <Button
+                width="100%"
+                title={<i className="fas fa-credit-card"> Pay </i>}
+                padding="5px"
+                background="white"
+                border="solid 1px #45a949a6"
+                hoverColor="#45a949a6"
+                height="fit-content"
+            />
+        </StyleDiv>
+
     )
 }
 export default OrderSummary;

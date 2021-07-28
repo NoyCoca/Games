@@ -52,35 +52,38 @@ const CardItem = ({ name, img, price, linkTo, released, genres, added, playtime,
 
   return (
     < Link to={name} style={{ textDecoration: "none", color: "black" }} >
-      <StyleCard className="card" style={{ width: "25rem" }} onClick={() => setGameName(name)}>
-        <StyleImg className="card-img-top" src={img} alt="Card image cap" />
-        <p className="card-text">{name}</p>
-        <p>
+      <StyleCard className="card" style={{ width: "18rem", backgroundImage: `url(${img})`, height: '45vh', backgroundSize: "110% 100%", display: "flex", flexDirection: "column-reverse", borderRadius:"20px"}} onClick={() => setGameName(name)} >
+        {/* <StyleImg className="card-img-top" src={img} alt="Card image cap" /> */}
+        <div style={{ textAlign: "center", background: "#0000005c", lineHeight:"1rm" }}>
+          <p className="card-text" style={{ fontFamily: "fantasy"}} >{name}</p>
+        {<p style={{ textAlign: "center"}}>
           {
-            genres?.map(genre =>
-              <span> | {genre.name}</span>
+            genres?.map((genre,index) =>
+              <span key={index}> | {genre.name}</span>
             )
           }
         </p>
-        <p>Price: {price}$</p>
-        <StyleDivHover className="card-body">
-          <div style={{height:"80%", lineHeight:1.5}}>
+ }
+        </div>
+        {/* <p>{price} <i class="fas fa-dollar-sign"> </i></p> */}
+        <StyleDivHover className="card-body" style={{}}>
+          <div style={{ height: "80%", lineHeight: 1.5, margin: "5px"}}>
 
             <p className="card-text">{name}</p>
             <p>{released}</p>
             <p>
               {
-                genres?.map(genre =>
-                  <span> | {genre.name}</span>
+                genres?.map((genre, index)=>
+                  <span key={index}> | {genre.name}</span>
                 )
               }
             </p>
-            <p> <i class="fas fa-gamepad"></i>  {added}</p>
-            <p> <i class="fas fa-stopwatch"></i>  {playtime} minutes</p>
-            <p> <i class="far fa-star" style={{ color: "#e0e009cf" }}></i> {rating}</p>
+            <p> <i className="fas fa-gamepad"></i>  {added}</p>
+            <p> <i className="fas fa-stopwatch"></i>  {playtime} minutes</p>
+            <p> <i className="far fa-star" style={{ color: "#e0e009cf" }}></i> {rating}</p>
           </div>
-          <Link to={linkTo} style={{ height: "20%" }}>
-            <Button
+          {/* <Link to={linkTo} style={{ height: "20%" }}> */}
+            {/* <Button
               width="100%"
               title="Add to cart +"
               padding="5px"
@@ -94,7 +97,7 @@ const CardItem = ({ name, img, price, linkTo, released, genres, added, playtime,
               }}
             />
           </Link>
-
+ */}
         </StyleDivHover>
       </StyleCard>
     </Link>

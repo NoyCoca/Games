@@ -24,7 +24,7 @@ const Home = () => {
       <StyleDivContinuer>
         {SaleBigImg.map((game) => {
           return (<>
-            <SaleCard name={game.name} price={game.price} img={game.img} />
+            <SaleCard key={game.price} name={game.name} price={game.price} img={game.img} />
             <StyleSmallCombiner>
               {
                 SaleSmallImgs.map(game => {

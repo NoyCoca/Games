@@ -5,20 +5,22 @@ import { useState } from "react";
 
 const StyleDiv = styled.div`
 display: flex;
-justify-content: center;
-background: #00000094;
-width: 100%;
-height: 80vh;
-align-items:center;
+width: 50%;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+height: 75vh;
 `
 const StyleInfoDiv = styled.div`
-justify-content: center;
-    display: flex;
-    flex-direction: column;
+width: 45%;
+margin-top: 5%;
+margin-left: 6%;
+
+
 `
 const StyleDivImg = styled.div`
 display: flex;
-width:80%;
+width:60%;
 position: relative;
 bottom: 0;
 overflow: auto;
@@ -36,6 +38,10 @@ overflow: auto;
   background: #555;
 }
 `
+const StyleH1 = styled.h1`
+font-size: 60px;
+    font-family: fantasy;
+`
 const Game = ({ name }) => {
     const games = useStoreContext().games
     const dispatch = useStoreContext().dispatch
@@ -43,32 +49,118 @@ const Game = ({ name }) => {
 
     const [mainImg, SetMainImg] = useState(game.background_image);
     console.log(game)
-    return (<StyleDiv>
-        <div style={{ width: "50%"}}>
-            <img style={{ width: "80%", height:"70vh"}} src={mainImg} alt={game.name} />
-            <StyleDivImg >
-                {
-                    game.short_screenshots.map(gameImg => 
-                    <img src={gameImg.image} alt={name} style={{ width: "15%" }} 
-                            onMouseOver={() => SetMainImg(gameImg.image)}
-                    />)
-                }
-            </StyleDivImg>
-        </div>
-        <StyleInfoDiv >
-            <h3> {game.name}</h3>
+    return (
+
+
+        <div style={{
+            display: "flex",
+            flexDirection:"column",
+            alignItems:"center",
+            background: "#00000094",
+        }}>
+
+            <StyleDiv>
+                   
+                <img style={{ width: "20vw" ,height:"45vh",marginTop:"5%" , borderRadius: "30px" }} src={game.background_image} alt={game.name} />
+                <StyleInfoDiv >
+                    <StyleH1> {game.name}</StyleH1>
+                    <p>{game.released}</p>
+                    <div style={{ display: "flex", justifyContent: "space-between", margin: "20px 0" }}>
+                        <div >
+                            <h3> playes </h3>
+                            <p> <i className="fas fa-gamepad"></i>  {game.added}</p>
+                        </div>
+                        <div>
+                            <h3> playTime </h3>
+                            <p> <i className="fas fa-stopwatch"></i>  {game.playtime} minutes</p>
+                        </div>
+                        <div>
+                            <h3> reting </h3>
+                            <p> <i className="far fa-star" style={{ color: "#e0e009cf" }}></i> {game.rating}</p>
+                        </div>
+                    </div>
+
+                    <p>gagger:
+                        {
+                            game.genres.map((genre, index) =>
+                                <span key={index}> | {genre.name}</span>
+                            )
+                        }
+                    </p>
+
+                    <p>Platform:
+                        {
+                            game.parent_platforms.map(platform => <span key={platform.platform.name}>| {platform.platform.name} </span>)
+
+                        } </p>
+                    <Button
+                        width="100%"
+                        title="Add to cart +"
+                        padding="7px"
+                        background="#ffffffdb"
+                        hoverColor="#efefef6b"
+                        clickHandler={() => {
+                            dispatch({
+                                type: ADD_ITEM,
+                                payload: games?.find((game) => game.name === name),
+                            });
+                        }}
+                    />
+                    
+                </StyleInfoDiv>
+
+
+
+            </StyleDiv>
+              
+
+            <div >
+
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: "150px 80px"}}>
+
+                    <div style={{ width: "80%", textAlign:"-webkit-center"}}>
+                        <img style={{ width: "60%", height: "50vh" }} src={mainImg} alt={game.name} />
+                        <StyleDivImg >
+                            {
+                                game.short_screenshots.map(gameImg =>
+                                    <img key={gameImg.id} src={gameImg.image} alt={name} style={{ width: "15%" }}
+                                        onMouseOver={() => SetMainImg(gameImg.image)}
+                                    />)
+                            }
+                        </StyleDivImg>
+                    </div>
+                </div>
+                {/* <StyleInfoDiv >
+            <StyleH1> {game.name}</StyleH1>
             <p>{game.released}</p>
-            <p>
+            <div style={{ display: "flex", justifyContent: "space-between", margin:"20px 0" }}>
+                <div >
+                    <h3> playes </h3>
+                    <p> <i className="fas fa-gamepad"></i>  {game.added}</p>
+                </div>
+                <div>
+                    <h3> playTime </h3>
+                    <p> <i className="fas fa-stopwatch"></i>  {game.playtime} minutes</p>
+                </div>
+                <div>
+                    <h3> reting </h3>
+                    <p> <i className="far fa-star" style={{ color: "#e0e009cf" }}></i> {game.rating}</p>
+                </div>
+            </div>
+
+            <p>gagger:
                 {
-                    game.genres.map(genre =>
-                        <span> | {genre.name}</span>
+                    game.genres.map((genre, index) =>
+                        <span key={index}> | {genre.name}</span>
                     )
                 }
             </p>
-            <p> <i class="fas fa-gamepad"></i>  {game.added}</p>
-            <p> <i class="fas fa-stopwatch"></i>  {game.playtime} minutes</p>
-            <p> <i class="far fa-star" style={{ color: "#e0e009cf" }}></i> {game.rating}</p>
 
+            <p>Platform:
+                {
+                    game.parent_platforms.map(platform => <span key={platform.platform.name}>| {platform.platform.name} </span>)
+
+                } </p>
             <Button
                 width="100%"
                 title="Add to cart +"
@@ -82,8 +174,9 @@ const Game = ({ name }) => {
                     });
                 }}
             />
-        </StyleInfoDiv>
-    </StyleDiv>)
+        </StyleInfoDiv> */}
+            </div>
+        </div>)
 }
 
 export default Game

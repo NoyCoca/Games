@@ -25,7 +25,6 @@ const StyleInput = styled.input`
   margin: 5px;
   padding: 15px;
   border-radius: 5px 5px;
-  background: #f1f1f185;
 `;
 
 const StyleSpan = styled.span`

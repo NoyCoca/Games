@@ -2,6 +2,7 @@ import {  Link } from 'react-router-dom'
 import Header from './Header';
 import styled from 'styled-components';
 import { useStoreContext } from '../../context/ItemsContext';
+import Ticker from 'react-ticker';
 
 const StyleLi = styled.li`
   color: black;
@@ -16,6 +17,13 @@ const NavBar = () => {
   return (
     <>
       <Header />
+      {/* <Ticker> */}
+        {/* {({ index }) => (
+          <>
+            <p>New Games </p>
+          </>
+        )}
+      </Ticker> */}
       <nav className="navbar navbar-expand-lg navbar-light " style={{ backgroundColor: "none"}}>
         <button
           className="navbar-toggler"
@@ -42,24 +50,23 @@ const NavBar = () => {
               </Link>
             </StyleLi>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <Link to={search.length > 0 }>
+          <form className="form-inline my-2 my-lg-0" style={{width:"45%"}}>
               <input
+              style={{ background: "rgb(241 241 241 / 10%)", width: "88%", color:"white" }}
                 className="form-control mr-sm-2"
                 type="search"
                 placeholder="Search"
                 onChange={(e) => setSearch(e.target.value)}
               />
-</Link>
-            
           <Link to={'/search'}>
             <button
               className="btn btn-outline-success my-2 my-sm-0"
               type="submit"
               >
-              Search
+                <i className="fas fa-search"></i>
             </button>
               </Link>
+            
           </form>
         </div>
       </nav>

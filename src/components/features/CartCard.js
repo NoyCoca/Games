@@ -30,15 +30,20 @@ border-radius: 15px;
   const games = useStoreContext().games;
   const dispatch = useStoreContext().dispatch;
 
+  // const deleteItem = (e) => {
+  //   console.log(name)
+  //   dispatch({ type: UPDATE_ITEMS_NUMBER, payload: games.find(item => item.name === name) 
+  //   })}
+  
   return (
     <StyleDiv>
       <img src={img} style={{ width: "200px", height: "150px" }} alt={name} />
       <p>{name}</p>
       <p>{price * items}$</p>
       <StyleItemsNumberDiv>
-        <StyleItemsNumberButton value={items} onClick={(e) => dispatch({ type: ADD_ITEM, payload: games.find(item => item.name === name) })} >+</StyleItemsNumberButton>
+        <StyleItemsNumberButton  >+</StyleItemsNumberButton>
         <p style={{margin: "4px 10px"}}>{items}</p>
-        <StyleItemsNumberButton value={items} onClick={(e) => dispatch({ type: UPDATE_ITEMS_NUMBER, payload: games.find(item => item.name === name) })} > -</StyleItemsNumberButton>
+        <StyleItemsNumberButton value={items}  > -</StyleItemsNumberButton>
       </StyleItemsNumberDiv>
 
       {/* <Button

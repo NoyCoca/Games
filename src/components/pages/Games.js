@@ -26,7 +26,7 @@ const Games = () => {
           games.map((game) => {
 
             return (
-              <CardItem linkTo="games" name={game.name} img={game.background_image} price={game.price} released={game.released} genres={game.genres} added={game.added} playtime={game.playtime} rating={game.rating} />
+              <CardItem key= {game.name}linkTo="games" name={game.name} img={game.background_image} price={game.price} released={game.released} genres={game.genres} added={game.added} playtime={game.playtime} rating={game.rating} />
             )
           })
         ) : (

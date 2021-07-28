@@ -26,7 +26,7 @@ const CartTable = ({ setSubtotal, subtotal }) => {
                     cartItems.map(game => {
                         total += game.price;
                         return (
-                            <tr>
+                            <tr key={game.price}>
                                 <td style={{ borderBottom: "2px solid #dee2e61f" }} ><img src={game.img || game.background_image} style={{ width: "100px", height: "100px" }} alt={game.name} /></td>
                                 <td style={{ borderBottom: "2px solid #dee2e61f" }}>{game.name}</td>
                                 <td style={{ borderBottom: "2px solid #dee2e61f" }}><AddDeleteItems items={game.items} name={game.name} /></td>

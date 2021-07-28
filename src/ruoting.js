@@ -9,6 +9,7 @@ import Footer from "./components/features/Footer";
 import SingIn from "./components/pages/SignIn";
 import { useStoreContext } from "./context/ItemsContext";
 import Search from "./components/pages/Search";
+import Ticker from "react-ticker";
 const Routing = () => {
   const gameName = useStoreContext().gameName
   const search = useStoreContext().search
@@ -16,6 +17,7 @@ const Routing = () => {
   return (
     <>
       <NavBar />
+
       <Switch>
         <Route exact path="/">
           <Home />
