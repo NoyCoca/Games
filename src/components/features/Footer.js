@@ -9,7 +9,7 @@ i{
     margin: 5px;
     color: #45a949d9 ;
     &:hover{
-        color: #45a949a6;
+        color: #79f97ed9;
     }
 }
 `

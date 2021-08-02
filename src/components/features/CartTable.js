@@ -2,10 +2,7 @@ import styled from "styled-components";
 import { useStoreContext } from "../../context/ItemsContext";
 import AddDeleteItems from "./AddDeleteItems";
 
-const StyleP = styled.p`
-margin: 30px 0;
-  font-size: 15px;
-  `;
+
 const CartTable = ({ setSubtotal, subtotal }) => {
     let total = 0;
     const cartItems = useStoreContext().state.itemsArray;

@@ -15,16 +15,16 @@ const StyleItemsNumberButton = styled.button`
   `
 
 const AddDeleteItems = ({ items, name }) => {
-    const games = useStoreContext().games;
+    const allGames = useStoreContext().allGames;
     const dispatch = useStoreContext().dispatch;
     const deleteItem = (e) => {
-        const payload = games.find(item => item.name === name);
-        console.log(name, games, payload )
+        const payload = allGames.find(item => item.name === name);
+        console.log(name, allGames, payload )
         dispatch({ type: DELETE_ITEM, payload })
     }
     return (
         <StyleItemsNumberDiv>
-            <StyleItemsNumberButton onClick={(e) => dispatch({ type: ADD_ITEM, payload: games.find(item => item.name === name) })} >+</StyleItemsNumberButton>
+            <StyleItemsNumberButton onClick={(e) => dispatch({ type: ADD_ITEM, payload: allGames.find(item => item.name === name) })} >+</StyleItemsNumberButton>
             <p style={{ margin: "4px 10px" }}>{items}</p>
             <StyleItemsNumberButton onClick={deleteItem} > -</StyleItemsNumberButton>
         </StyleItemsNumberDiv>

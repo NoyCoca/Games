@@ -1,8 +1,6 @@
-import {  Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Header from './Header';
 import styled from 'styled-components';
-import { useStoreContext } from '../../context/ItemsContext';
-import Ticker from 'react-ticker';
 
 const StyleLi = styled.li`
   color: black;
@@ -12,19 +10,11 @@ const StyleLi = styled.li`
 `;
 const NavBar = () => {
 
-  const setSearch = useStoreContext().setSearch
-  const search = useStoreContext().search
   return (
     <>
       <Header />
-      {/* <Ticker> */}
-        {/* {({ index }) => (
-          <>
-            <p>New Games </p>
-          </>
-        )}
-      </Ticker> */}
-      <nav className="navbar navbar-expand-lg navbar-light " style={{ backgroundColor: "none"}}>
+
+      <nav className="navbar navbar-expand-lg navbar-light " style={{ backgroundColor: "none" }}>
         <button
           className="navbar-toggler"
           type="button"
@@ -34,40 +24,22 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span style={{ color: "white" }} ><i className="fas fa-bars"></i></span>
         </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <StyleLi className="nav-item active">
-              <Link to="/" className="nav-link disabled" style={{color:"white"}}>
-                Home
-              </Link>
-            </StyleLi>
-            <StyleLi className="nav-item active">
-              <Link to="/games" className="nav-link disabled" style={{ color: "white" }}>
+              <Link to="/" className="nav-link disabled" style={{ color: "white" }}>
                 {"New & trending"}
               </Link>
             </StyleLi>
-          </ul>
-          <form className="form-inline my-2 my-lg-0" style={{width:"45%"}}>
-              <input
-              style={{ background: "rgb(241 241 241 / 10%)", width: "88%", color:"white" }}
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-          <Link to={'/search'}>
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-              >
-                <i className="fas fa-search"></i>
-            </button>
+            <StyleLi>
+              <Link to="/popular" className="nav-link disabled" style={{ color: "white" }}>
+                {"Popular"}
               </Link>
-            
-          </form>
+            </StyleLi>
+          </ul>
         </div>
       </nav>
     </>

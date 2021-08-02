@@ -1,7 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./components/features/NavBar";
-import Games from "./components/pages/Games";
-import Home from "./components/pages/Home";
+import NewTrending from "./components/pages/NewTrending";
 import SingUp from "./components/pages/SignUp";
 import ShoppingCart from "./components/pages/ShoppingCart";
 import Game from "./components/pages/Game";
@@ -9,7 +8,7 @@ import Footer from "./components/features/Footer";
 import SingIn from "./components/pages/SignIn";
 import { useStoreContext } from "./context/ItemsContext";
 import Search from "./components/pages/Search";
-import Ticker from "react-ticker";
+import Popular from "./components/pages/Popular";
 const Routing = () => {
   const gameName = useStoreContext().gameName
   const search = useStoreContext().search
@@ -17,10 +16,9 @@ const Routing = () => {
   return (
     <>
       <NavBar />
-
       <Switch>
-        <Route exact path="/">
-          <Home />
+        <Route exact  path="/">
+          <NewTrending />
         </Route>
         <Route path="/signup">
           <SingUp />
@@ -28,8 +26,8 @@ const Routing = () => {
         <Route path="/signin">
           <SingIn />search
         </Route>
-        <Route path="/games">
-          <Games />
+        <Route path="/popular">
+          <Popular />
         </Route>
         <Route path='/shoppingcart'>
           <ShoppingCart />

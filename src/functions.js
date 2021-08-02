@@ -17,11 +17,15 @@ export function AllTrue(userName, password, email) {
   if (userName &&  password && email) return true;
 }
 
-export const getGamesApi = ()=>{
-   return fetch(
-      // "https://api.rawg.io/api/games?key=f35c31a24b754c5e822e8bf9c69f8680&dates=2019-09-01,2019-09-30&platforms=18,1,7"
-      "https://api.rawg.io/api/games?key=f35c31a24b754c5e822e8bf9c69f8680" 
-    )
+export const getGamesApi = (kind)=>{
+  let api;
+  if (kind=== "pulper"){
+    api = "https://api.rawg.io/api/games?key=f35c31a24b754c5e822e8bf9c69f8680&dates=2019-09-01,2019-09-30&platforms=18,1,7"
+  }
+  else{
+    api = "https://api.rawg.io/api/games?key=f35c31a24b754c5e822e8bf9c69f8680"
+  }
+   return fetch(api)
       .then((res) => res.json())
       .then((data) => data.results);
 }

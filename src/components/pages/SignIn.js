@@ -36,7 +36,6 @@ const StyleInput = styled.input`
 
 const SingIn = () => {
     const setUserName = useStoreContext().setUserName;
-    const userName = useStoreContext().userName;
     const inputRefName = useRef();
     return (
         <StyleDiv>

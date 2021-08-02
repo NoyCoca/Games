@@ -16,8 +16,6 @@ const StyleForm = styled.form`
   justify-content: space-between;
       border:2px solid #dee2e61f;
       background: #00000094;
-
-
 `;
 
 const StyleInput = styled.input`
@@ -41,7 +39,7 @@ const SignInForm = () => {
 
     const inputRefName = useRef();
     return (<StyleForm >
-        <h1>Sing up</h1>
+        <h1 style={{fontFamily:` 'Games',sans-serif`}}>Sing up</h1>
         <StyleInput
             name="userName"
             placeholder="User name"

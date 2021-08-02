@@ -43,25 +43,24 @@ font-size: 60px;
     font-family: fantasy;
 `
 const Game = ({ name }) => {
-    const games = useStoreContext().games
+    const allGames = useStoreContext().allGames
     const dispatch = useStoreContext().dispatch
-    const game = games.find(game => game.name === name)
+    const game = allGames.find(game => game.name === name)
 
-    const [mainImg, SetMainImg] = useState(game.background_image);
-    console.log(game)
+    const [mainImg, SetMainImg] = useState(game?.background_image);
+
+    
     return (
-
-
         <div style={{
             display: "flex",
-            flexDirection:"column",
-            alignItems:"center",
+            flexDirection: "column",
+            alignItems: "center",
             background: "#00000094",
         }}>
 
             <StyleDiv>
-                   
-                <img style={{ width: "20vw" ,height:"45vh",marginTop:"5%" , borderRadius: "30px" }} src={game.background_image} alt={game.name} />
+
+                <img style={{ width: "20vw", height: "45vh", marginTop: "5%", borderRadius: "30px" }} src={game.background_image} alt={game.name} />
                 <StyleInfoDiv >
                     <StyleH1> {game.name}</StyleH1>
                     <p>{game.released}</p>
@@ -93,32 +92,36 @@ const Game = ({ name }) => {
                             game.parent_platforms.map(platform => <span key={platform.platform.name}>| {platform.platform.name} </span>)
 
                         } </p>
-                    <Button
-                        width="100%"
-                        title="Add to cart +"
-                        padding="7px"
-                        background="#ffffffdb"
-                        hoverColor="#efefef6b"
-                        clickHandler={() => {
-                            dispatch({
-                                type: ADD_ITEM,
-                                payload: games?.find((game) => game.name === name),
-                            });
-                        }}
-                    />
-                    
+                    <div style={{ display: "flex", justifyContent: "space-between", margin: "0 10px", alignItems: "center" }}>
+
+                        <h1> {game.price}$</h1>
+                        <Button
+                            width="50%"
+                            title="Add to cart +"
+                            padding="7px"
+                            background="#ffffffdb"
+                            hoverColor="#efefef6b"
+                            clickHandler={() => {
+                                dispatch({
+                                    type: ADD_ITEM,
+                                    payload: allGames?.find((game) => game.name === name),
+                                });
+                            }}
+                        />
+                    </div>
+
                 </StyleInfoDiv>
 
 
 
             </StyleDiv>
-              
+
 
             <div >
 
-                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: "150px 80px"}}>
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: "150px 80px" }}>
 
-                    <div style={{ width: "80%", textAlign:"-webkit-center"}}>
+                    <div style={{ width: "80%", textAlign: "-webkit-center" }}>
                         <img style={{ width: "60%", height: "50vh" }} src={mainImg} alt={game.name} />
                         <StyleDivImg >
                             {

@@ -20,7 +20,6 @@ const Button = ({
     border: none;
     margin: 5px;
     color: ${color};
-    /* border-radius: 5px; */
     border: ${border};
     &:hover {
       background: ${hoverColor};

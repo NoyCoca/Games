@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import Ticker from "react-ticker";
 import styled from "styled-components";
 import { useStoreContext } from "../../context/ItemsContext";
-import MoveStuffAround from "./MoveStuffAround";
 
 const StyleDivContinuer = styled.div`
   display: flex;
@@ -24,9 +22,30 @@ text-decoration: none;
 const Header = () => {
   const itemState = useStoreContext().state;
   const userName = useStoreContext().userName;
+  const setSearch = useStoreContext().setSearch
+
   return (
     <StyleDivContinuer>
       <StyleH1>Games</StyleH1>
+      <form className="form-inline my-2 my-lg-0" style={{ width: "45%" }}>
+        <input
+          style={{ background: "rgb(241 241 241 / 10%)", width: "88%", color: "white" }}
+          className="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <Link to={'/search'}>
+          <button
+            className="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            <i className="fas fa-search"></i>
+          </button>
+        </Link>
+
+      </form>
+
       <div style={{
         display: "flex", alignSelf: "center",
         justifyContent: "space-around"
@@ -39,8 +58,8 @@ const Header = () => {
 
         </div>
         <p>
-          <Link to="/shoppingcart">
-            <StyleI className="fas fa-shopping-cart">{itemState.itemsNumber} </StyleI>
+          <Link to="/shoppingcart" >
+            <StyleI className="fas fa-shopping-cart" >{itemState.itemsNumber} </StyleI>
           </Link>
         </p>
       </div>

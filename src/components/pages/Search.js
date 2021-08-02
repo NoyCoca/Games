@@ -11,18 +11,19 @@ height: 81vh;
 ;
 `
 const Search = ({ searchItem }) => {
-    const games = useStoreContext().games;
+    const allGames = useStoreContext().allGames;
     let searchGames;
+    console.log(allGames)
     if (searchItem?.length > 0) {
 
-        searchGames = games.filter(game => game.name.substring(0, searchItem.length).toUpperCase() === searchItem.toUpperCase())
+        searchGames = allGames.filter(game => game.name.substring(0, searchItem.length).toUpperCase() === searchItem.toUpperCase())
     }
     return (
         <StyleDiv>
             {
 
                 searchGames?.length > 0 ? searchGames.map(game => 
-                <CardItem key={game.id} linkTo ="search" name={game.name} img={game.background_image} price={game.price} /> )
+                <CardItem key={game.id} linkTo ="search" game={game} /> )
                 : <h4>no match</h4>
                
             }

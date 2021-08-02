@@ -12,6 +12,7 @@ export function reducer(state, action) {
 
   switch (action.type) {
     case ADD_ITEM:
+      const { itemsNumber } = state;
 
       const searchItem = state.itemsArray.find(item => item.id === action.payload.id)
       if (searchItem) {

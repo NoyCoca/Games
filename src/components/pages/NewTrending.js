@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import CardItem from "../features/CardItem";
 import PageHeader from "../features/PageHeader";
 import { useStoreContext } from "../../context/ItemsContext";
-import { Link } from "react-router-dom";
 const StyleCardContinuer = styled.div`
   display: flex;
   flex-direction: row;
@@ -15,26 +14,26 @@ const StyleCardContinuer = styled.div`
 `;
 
 
-const Games = () => {
-  const games = useStoreContext().games
+const NewTrending = () => {
+  const newGames = useStoreContext().newGames
 
   return (
     <>
       <PageHeader title="New and trending" />
       <StyleCardContinuer>
-        {games ? (
-          games.map((game) => {
-
+        {newGames ? (
+     
+          newGames.map((game) => {
             return (
-              <CardItem key= {game.name}linkTo="games" name={game.name} img={game.background_image} price={game.price} released={game.released} genres={game.genres} added={game.added} playtime={game.playtime} rating={game.rating} />
+              <CardItem key= {game?.name}linkTo="games" game={game} />
             )
           })
         ) : (
-          <img src="https://cdn.dribbble.com/users/2077073/screenshots/6005120/loadin_gif.gif" alt="loading" />
+            <img src="https://www.xenren.co/loader.gif" alt="loading" />
         )}
       </StyleCardContinuer>
     </>
   );
 };
 
-export default Games;
+export default NewTrending;
